@@ -2,11 +2,56 @@
 // git branch -a 
 // git checkout nayeem
 
-function nayeem(name,callback){
-    console.log("helo",name)
-    callback(name)
+function gumabo(){
+     return  new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("gumabo first.")
+            resolve()
+            
+        }, 3000);
+     })
 }
 
-nayeem("NAYEEM",(v)=>{
-    console.log("done",v )
-})
+function khabo(){
+   return  new Promise((resolve, reject) => {
+       setTimeout(() => {
+           console.log("khabo secend.")
+           resolve()
+           
+       }, 1000);
+    })
+}
+
+function laptopCalabo(){
+    return  new Promise((resolve, reject) => {
+        if(1+1 ==3){
+
+            setTimeout(() => {
+                console.log("laptop Calabo third.")
+                resolve()
+                
+            }, 3000);
+
+        }else{
+            reject(console.log("error because 1+1 =2 not 3"))
+        }
+      
+    })
+}
+
+
+async function callAll (){
+    try {
+
+        await gumabo()
+        await khabo()
+        await laptopCalabo()
+        
+    } catch (error) {
+        console.log(error)
+        
+    }
+   
+}
+
+callAll()
